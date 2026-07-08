@@ -1,0 +1,49 @@
+name: Nightly Validate
+
+on:
+  schedule:
+    - cron: "0 22 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: latest-ai-assistant-compatibility
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Compile against latest stable AI Assistant
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Fetch Sources
+        uses: actions/checkout@v7.0.0
+
+      - name: Setup Java
+        uses: actions/setup-java@v5.4.0
+        with:
+          distribution: zulu
+          java-version: 21
+
+      - name: Resolve latest stable IntelliJ IDEA
+        id: idea
+        run: |
+          version="$(curl --fail-with-body --retry 3 --silent --show-error \
+            'https://data.services.jetbrains.com/products/releases?code=IIU&latest=true&type=release' \
+            | jq --raw-output --exit-status '.IIU[0].version')"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Compile and verify against latest compatible AI Assistant
+        run: |
+          ./gradlew clean check verifyPlugin \
+            -PplatformVersion="${{ steps.idea.outputs.version }}" \
+            -PresolveCompatibleAiAssistant
+
+      - name: Upload Plugin Verifier Reports
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: latest-ai-assistant-plugin-verifier
+          path: ./build/reports/pluginVerifier

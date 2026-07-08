@@ -1,0 +1,19 @@
+<idea-plugin>
+    <id>com.alexey-anufriev.ai-chat-notifications-intellij-plugin</id>
+    <name>AI Chat Notifications</name>
+    <vendor email="contact@alexey-anufriev.com" url="https://alexey-anufriev.com">Alexey Anufriev</vendor>
+
+    <description><![CDATA[
+        AI Chat Notifications Plugin helps you avoid missing AI agent prompts while you are away from the IDE.
+        Start a task with an AI coding agent, minimize IDE, or switch to another app.
+        When the agent needs approval, input, or another decision, the plugin sends a desktop notification so you can unlock the further work.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.ml.llm</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <postStartupActivity implementation="com.alexey_anufriev.ai_chat_notifications.AiAssistantNotificationActivity"/>
+    </extensions>
+
+</idea-plugin>
