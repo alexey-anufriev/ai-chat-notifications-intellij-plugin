@@ -48,6 +48,14 @@ jobs:
       - name: Fetch Sources
         uses: actions/checkout@v7.0.0
 
+      - name: Free Runner Disk Space
+        uses: jlumbroso/free-disk-space@v1.3.1
+        with:
+          tool-cache: true
+
+      - name: Check Disk Space
+        run: df -h
+
       - name: Setup Java
         uses: actions/setup-java@v5.5.0
         with:
@@ -71,6 +79,14 @@ jobs:
     steps:
       - name: Fetch Sources
         uses: actions/checkout@v7.0.0
+
+      - name: Free Runner Disk Space
+        uses: jlumbroso/free-disk-space@v1.3.1
+        with:
+          tool-cache: true
+
+      - name: Check Disk Space
+        run: df -h
 
       - name: Setup Java
         uses: actions/setup-java@v5.5.0
