@@ -13,3 +13,7 @@ when an agent starts waiting for your attention. It does not depend on the AI ch
 so it continues to work while the IDE window is minimized.
 
 ![AI Chat Notifications popup](docs/notification.png)
+
+## License
+
+This project is licensed under the [Apache License 2.0](LICENSE).
