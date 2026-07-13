@@ -1,5 +1,9 @@
 # AI Chat Notifications
 
+![JetBrains Plugin Version](https://img.shields.io/jetbrains/plugin/v/com.alexey-anufriev.ai-chat-notifications-intellij-plugin)
+![JetBrains Plugin Downloads](https://img.shields.io/jetbrains/plugin/d/com.alexey-anufriev.ai-chat-notifications-intellij-plugin)
+![JetBrains Plugin Rating](https://img.shields.io/jetbrains/plugin/r/rating/com.alexey-anufriev.ai-chat-notifications-intellij-plugin)
+
 AI Chat Notifications is an IntelliJ Platform Plugin that shows a desktop notification
 when an AI Coding Agent that runs in the IDE needs your attention.
 
