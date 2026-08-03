@@ -9,10 +9,19 @@
         When the agent needs approval, input, or another decision, the plugin sends a desktop notification so you can unlock the further work.
     ]]></description>
 
+    <change-notes><![CDATA[
+        <h2>1.1.0</h2>
+        <ul>
+            <li>Show a native IDE notification when an agent needs attention in a background project window.</li>
+            <li>Add an Open action to focus the project window that needs attention.</li>
+        </ul>
+    ]]></change-notes>
+
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.ml.llm</depends>
 
     <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="AI Chat Notifications" displayType="BALLOON" isLogByDefault="true"/>
         <postStartupActivity implementation="com.alexey_anufriev.ai_chat_notifications.AiAssistantNotificationActivity"/>
     </extensions>
 
