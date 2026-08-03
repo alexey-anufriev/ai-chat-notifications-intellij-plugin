@@ -76,6 +76,7 @@ class AiAssistantAttentionListenerService : Disposable {
                     if (updatePendingRequest(session.uid, stepId, requestId)) {
                         log.info("AI Assistant input request detected for chat '${session.uid}', step '$stepId'")
                         AttentionNotifier.show(
+                            project,
                             "Agent needs your attention",
                             "Attention required in ${project.name} project.",
                         )

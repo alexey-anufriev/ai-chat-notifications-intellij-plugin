@@ -16,6 +16,10 @@ This plugin observes JetBrains AI Assistant chat session state and sends a deskt
 when an agent starts waiting for your attention. It does not depend on the AI chat UI being visible,
 so it continues to work while the IDE window is minimized.
 
+When another IDE project window is active, the plugin shows a native IDE notification with an
+**Open** action that focuses the project window where the agent needs input. Notifications are not
+shown for requests in the currently active project window.
+
 ![AI Chat Notifications popup](docs/notification.png)
 
 ## License
